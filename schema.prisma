@@ -1,0 +1,20 @@
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Review {
+  id           Int      @id @default(autoincrement())
+  body         String
+  type         ReviewType
+  createdAt    DateTime @default(now())
+  isDeleted    Boolean  @default(false)
+  writtenById  String
+  receivedById String
+}
+
+enum ReviewType {
+  POSITIVE
+  NEGATIVE
+}
