@@ -1,4 +1,11 @@
-import { APIChatInputApplicationCommandInteraction, APIPingInteraction } from "discord-api-types/v10";
+import {
+  APIChatInputApplicationCommandInteraction,
+  APIPingInteraction,
+  APIModalInteractionResponse,
+  APITextInputComponent,
+  APIMessageComponent,
+  APIModalSubmitInteraction,
+} from "discord-api-types/v10";
 import { verifyKey, InteractionType } from "discord-interactions";
 import nacl from "tweetnacl";
 
@@ -25,7 +32,8 @@ export const verifyInteractionsRequest = async (req: Request, discordPublicKey: 
     isVerified,
     interaction: JSON.parse(rawBody) as unknown as
       | APIPingInteraction
-      | APIChatInputApplicationCommandInteraction,
+      | APIChatInputApplicationCommandInteraction
+      | APIModalSubmitInteraction,
   };
 };
 
