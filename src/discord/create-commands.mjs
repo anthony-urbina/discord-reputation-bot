@@ -15,25 +15,18 @@ const createGlobalCommands = async ({ appId }) => {
     const body = {
       name: "add",
       description: "Add a review for a user",
+
       options: [
         {
-          name: "user",
-          description: "Select a user to review",
-          type: 2,
-          // required: true,
+          name: "positive",
+          description: "Positive review",
+          type: 1,
           options: [
             {
-              name: "positive",
-              description: "Positive review",
-              type: 1,
-              options: [
-                {
-                  name: "user",
-                  description: "The user to get",
-                  type: 6,
-                  required: true,
-                },
-              ],
+              name: "user",
+              description: "The user to get",
+              type: 6,
+              required: true,
             },
           ],
         },
