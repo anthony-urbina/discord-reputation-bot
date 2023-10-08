@@ -14,17 +14,30 @@ const createGlobalCommands = async ({ appId }) => {
   try {
     const body = {
       name: "add",
-      description: "Add a review for a user",
+      description: "Submit a review for another user.",
 
       options: [
         {
           name: "positive",
-          description: "Positive review",
+          description: "Leave a positive review for a user.",
           type: 1,
           options: [
             {
               name: "user",
-              description: "The user to get",
+              description: "Select the user you'd like to review positively.",
+              type: 6,
+              required: true,
+            },
+          ],
+        },
+        {
+          name: "negative",
+          description: "Leave a negative review for a user.",
+          type: 1,
+          options: [
+            {
+              name: "user",
+              description: "Select the user you'd like to review negatively.",
               type: 6,
               required: true,
             },
@@ -32,6 +45,7 @@ const createGlobalCommands = async ({ appId }) => {
         },
       ],
     };
+
     const DISCORD_API_URL = `/applications/${appId}/commands`;
     const res = await discordApi.post(DISCORD_API_URL, body);
     return res.data;

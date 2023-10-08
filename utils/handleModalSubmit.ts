@@ -47,8 +47,13 @@ export default async function handleModalSubmit(interaction: APIModalSubmitInter
       },
     });
 
-    const getUserRes = await discordApi.get(`/users/${receivedById}`);
-    const { global_name, username } = getUserRes.data;
+    const getUserRes = await fetch(`https://discord.com/api/users/${receivedById}`, {
+      headers: {
+        Authorization: `Bot ${process.env.DISCORD_PRIVATE_KEY}`,
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+    });
+    const { global_name, username } = await getUserRes.json();
 
     const reviewEmbed = createReviewEmbed({
       last3Reviews,

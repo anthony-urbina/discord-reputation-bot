@@ -4,6 +4,8 @@ import { NextResponse } from "next/server";
 import handleModalSubmit from "../../../../utils/handleModalSubmit";
 import handleAppCommand from "../../../../utils/handleAppComand";
 
+export const runtime = "edge";
+
 const Application = {
   id: process.env.DISCORD_APP_ID!,
   publicKey: process.env.DISCORD_PUBLIC_KEY!,
@@ -27,7 +29,7 @@ export async function POST(req: Request) {
 
       return NextResponse.json(interactionRes, { status: 200 });
     } catch (err) {
-      console.error("err", err);
+      console.error("errsss", err);
     }
   }
   return NextResponse.json({ error: "Internal Service Error" }, { status: 500 });
