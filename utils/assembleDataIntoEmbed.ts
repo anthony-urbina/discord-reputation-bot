@@ -2,19 +2,19 @@ import { Review } from "@prisma/client";
 import { idToUsername } from "./idToUsername";
 import { EmbedType } from "discord-api-types/v10";
 
-interface CreateReviewEmbedProps {
+interface AssembleDataIntoEmbedProps {
   last3Reviews: Review[];
   positiveCount: string;
   negativeCount: string;
   receivedByUsername: string;
 }
 
-export const createReviewEmbed = ({
+export const assembleDataIntoEmbed = ({
   last3Reviews,
   positiveCount,
   negativeCount,
   receivedByUsername,
-}: CreateReviewEmbedProps) => {
+}: AssembleDataIntoEmbedProps) => {
   const reviewBodies = last3Reviews.map((review) => review.body);
   const authorIds = last3Reviews.map((review) => review.writtenById);
   const authorUsernames = authorIds.map((id) => idToUsername(id));

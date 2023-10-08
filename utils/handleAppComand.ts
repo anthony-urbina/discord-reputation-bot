@@ -1,5 +1,7 @@
 import { APIChatInputApplicationCommandInteraction, InteractionResponseType } from "discord-api-types/v10";
 import { prisma } from "../lib/prisma";
+import constructReviewEmbedForUser from "./constructReviewEmbedForUser";
+import headers from "../constants/headers";
 
 export default async function handleAppCommand(interaction: APIChatInputApplicationCommandInteraction) {
   const { name } = interaction.data;
@@ -66,5 +68,18 @@ export default async function handleAppCommand(interaction: APIChatInputApplicat
     } catch (err) {
       console.error("err", err);
     }
+  } else if (name === "get") {
+    const options = interaction.data.options as any;
+
+    const receivedById = options[0].value;
+
+    const reviewEmbed = await constructReviewEmbedForUser(receivedById);
+
+    const interactionRes = {
+      type: InteractionResponseType.ChannelMessageWithSource,
+      data: { embeds: reviewEmbed },
+    };
+
+    return interactionRes;
   }
 }
