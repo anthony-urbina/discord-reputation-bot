@@ -1,5 +1,4 @@
 import { APIModalSubmitInteraction, InteractionResponseType } from "discord-api-types/v10";
-import headers from "../constants/headers";
 import updateReview from "./query/updateReview";
 import constructReviewEmbedForUser from "./constructReviewEmbedForUser";
 

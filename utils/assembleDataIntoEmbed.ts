@@ -1,6 +1,5 @@
 import { Review } from "@prisma/client";
 import { idToUsername } from "./idToUsername";
-import { EmbedType } from "discord-api-types/v10";
 import formatDate from "./formatDate";
 
 interface AssembleDataIntoEmbedProps {

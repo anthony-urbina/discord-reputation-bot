@@ -1,12 +1,8 @@
 import {
   APIChatInputApplicationCommandInteraction,
   APIPingInteraction,
-  APIModalInteractionResponse,
-  APITextInputComponent,
-  APIMessageComponent,
   APIModalSubmitInteraction,
 } from "discord-api-types/v10";
-import { verifyKey, InteractionType } from "discord-interactions";
 import nacl from "tweetnacl";
 
 export const verifyInteractionsRequest = async (req: Request, discordPublicKey: string) => {
@@ -15,9 +11,6 @@ export const verifyInteractionsRequest = async (req: Request, discordPublicKey: 
   const rawBody = await req.text();
 
   if (!signature || !timestamp) return { isVerified: false };
-
-  //   const isVerified = verifyKey(rawBody, signature, timestamp, discordPublicKey);
-  //   if (!isVerified) return { isVerified: false };
 
   const isVerified = verifyWithNacl({
     discordPublicKey,

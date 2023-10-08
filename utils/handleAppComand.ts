@@ -1,7 +1,6 @@
 import { APIChatInputApplicationCommandInteraction, InteractionResponseType } from "discord-api-types/v10";
 import { prisma } from "../lib/prisma";
 import constructReviewEmbedForUser from "./constructReviewEmbedForUser";
-import headers from "../constants/headers";
 
 export default async function handleAppCommand(interaction: APIChatInputApplicationCommandInteraction) {
   const { name } = interaction.data;
