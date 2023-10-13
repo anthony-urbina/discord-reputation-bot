@@ -28,8 +28,8 @@ Try the application live at [https://discord-reputation-bot.vercel.app/](https:/
 
 ## Preview
 
-![bot-get](/gifs/bot-get.gif)
-![bot-post](/gifs/bot-post.gif)
+![bot-get](/public/gifs/bot-get.gif)
+![bot-post](/public/gifs/bot-post.gif)
 
 ## Development
 
