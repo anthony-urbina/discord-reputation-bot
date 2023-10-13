@@ -25,11 +25,11 @@ Try the application live at [https://discord-reputation-bot.vercel.app/](https:/
 ## Stretch Features
 
 - Admin can delete reviews
-
+  
 ## Preview
 
-![bot-get](/gifs/bot-get.gif)
-![bot-post](/gifs/bot-post.gif)
+![faceoff-mobile](server/assets/faceoff-mobile.gif)
+![enter-match-mobile](server/assets/enter-match-mobile.gif)
 
 ## Development
 
@@ -42,67 +42,65 @@ Try the application live at [https://discord-reputation-bot.vercel.app/](https:/
 
 1. Clone the repository.
 
-   ```shell
-   git clone https://github.com/anthony-urbina/discord-reputation-bot
-   cd discord-reputation-bot
-   ```
+    ```shell
+    git clone https://github.com/anthony-urbina/discord-reputation-bot
+    cd discord-reputation-bot
+    ```
 
 1. Install all dependencies with NPM.
 
-   ```shell
-   npm install
-   ```
+    ```shell
+    npm install
+    ```
 
 1. Install Ngrok globally.
 
-   ```shell
-   npm install -g ngrok
-   ```
+    ```shell
+    npm install -g ngrok
+    ```
 
 1. Run Ngrok to expose your local server.
 
-   ```shell
-   ngrok http 3000
-   ```
+    ```shell
+    ngrok http 3000
+    ```
 
 1. Import the example database to PostgreSQL.
 
-   ```shell
-   npm run db:import
-   ```
+    ```shell
+    npm run db:import
+    ```
 
 1. Make a copy of the .env.example file. Name your copy `.env`.
 
-   ```shell
-   cp .env.example .env
-   ```
+    ```shell
+    cp .env.example .env
+    ```
 
 1. Set up your environmental variables in `.env`. Replace `changeMe` with your own credentials.
 
-   ```shell
-   DISCORD_APP_ID="changeMe"
-   DISCORD_PUBLIC_KEY="changeMe"
-   DISCORD_PRIVATE_KEY="changeMe"
-   ACCELERATE_DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=changeMe
-   POSTGRES_URL_NON_POOLING="postgresql://user:changeMe@host:port/db_name?schema=public"
-   ```
+    ```shell
+    DISCORD_APP_ID="changeMe"
+    DISCORD_PUBLIC_KEY="changeMe"
+    DISCORD_PRIVATE_KEY="changeMe"
+    ACCELERATE_DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=changeMe
+    POSTGRES_URL_NON_POOLING="postgresql://user:changeMe@host:port/db_name?schema=public"
+    ```
 
 1. Create the tables in your database
    ```shell
    npx prisma db push
-   ```
+   ```    
 1. Generate Prisma Client:
 
-   ```shell
-   npx prisma generate --no-engine
-   ```
+    ```shell
+    npx prisma generate --no-engine
+    ```
 
 1. Start the project. Once started you can view the application by opening http://localhost:3000 in your browser.
 
-   ```shell
-   npm run dev
-   ```
-
+    ```shell
+    npm run dev
+    ```
 ## Troubleshooting
-
 1. If you are having any issues setting up Prisma Accelerate please visit [https://www.prisma.io/docs/data-platform/accelerate/getting-started](https://www.prisma.io/docs/data-platform/accelerate/getting-started)
