@@ -1,4 +1,4 @@
-# War
+# Reputation Bot
 
 A light backend application for discord-server admins who'd like to provide a system where members can read and write reviews about their transaction experiences with other users.
 
